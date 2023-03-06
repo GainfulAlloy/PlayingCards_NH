@@ -8,7 +8,7 @@
 
 
         // in this method, i represents an item in a list, starting from zero
-        // if statement is used to change the suit type for the cards in the list. J controls the enum.
+        // if statement is used to change the suit type for the cards in the list. J controls the enum in the Card class.
         public void createPack()
         {
             int j = 0;
@@ -28,7 +28,7 @@
 
 
         // 3 shuffle types, 1 - Fisher-Yates shuffle, 2 - Riffle Shuffle, 3 - No Shuffle.
-        // Fisher-Yates essentially puts all elemnts in a hat and pulls them out till none remain
+        // Fisher-Yates puts all elemnts in a hat and pulls them out till none remain
         // Riffle Shuffle where deck is split in half and the elemnts become interleved.
         // No shuffle = dont shuffle
         public void shuffleCardPack(int typeOfShuffle)
@@ -89,14 +89,14 @@
                 }
             }
         }
-
+        // prints card then removes it from the list
         public void deal()
         {
             var toRemove = Deck[0];
             Console.WriteLine(toRemove.cardName);
             Deck.RemoveAt(0);
         }
-
+        // removes specified amount of cards then prints amount of cards left
         public void dealCard(int amount)
         {
             Console.WriteLine("Dealing Cards: ");
