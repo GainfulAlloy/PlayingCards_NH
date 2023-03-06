@@ -39,7 +39,8 @@ namespace PlayingCards_NH
             value = aValue;
             this.suitType = suitType;
         }
-
+        
+        // Used to assign correct names to the cards
         public string valueType
         {
             get
@@ -67,6 +68,7 @@ namespace PlayingCards_NH
                 return type;
             }
         }
+        // allows for the cards to be printed to console correctly
         public string cardName
         {
             get
@@ -74,8 +76,5 @@ namespace PlayingCards_NH
                 return valueType + " of " + suitType.ToString();
             }
         }
-
-        // try using gets and sets as well as a switch.
-        // use a swtich in a method to assign suits or higher values to the cards
     }
 }
