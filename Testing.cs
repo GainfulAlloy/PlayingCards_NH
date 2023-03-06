@@ -14,6 +14,7 @@ namespace PlayingCards_NH
         {
       
         }
+        // used to test the program
         public void testing() 
         { 
             try 
