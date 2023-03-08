@@ -3,22 +3,23 @@
     internal class Pack
     {
 
-        // create all the cards in this class using this method
+        // this is the list of cards to be used for shuffles and dealing
         public static List<Card> Deck = new List<Card>();
 
-
+        // additional method
+        // creates all the cards in a pack in this method
         // in this method, i represents a card in the Deck list, starting from zero
-        // if statement is used to change the suit type for the cards in the list. J controls the enum in the Card class.
+        // if statement is used to change the suit type for the cards in the list. suitNum controls the enum in the Card class.
         public void createPack()
         {
-            int j = 0;
+            int suitNum = 0;
             for (int i = 0; i < 52; i++)
             {
                 if (i == 13 || i == 26 || i == 39)
                 {
-                    j++;
+                    suitNum++;
                 }
-                Card.suit suitType = (Card.suit)j;
+                Card.suit suitType = (Card.suit)suitNum;
                 int value = i % 13 + 1;
                 Deck.Add(new Card(value, suitType));
 
@@ -35,7 +36,7 @@
         {
             if (typeOfShuffle == 1)
             {
-                return FisherYates();
+                return fisherYates();
             }
             if (typeOfShuffle == 2)
             {
@@ -45,10 +46,9 @@
             return noShuffle();
         }
 
-
-
+        // I consider that these three shuffle methods are additional methods
         // Fisher-Yates (Random)
-        public static bool FisherYates()
+        public static bool fisherYates()
         {
             // create instance of random
             var rnd = new Random();

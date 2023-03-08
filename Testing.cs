@@ -32,16 +32,23 @@ namespace PlayingCards_NH
                 var shuffleSelect = Pack.shuffleCardPack(shuffleType);               
                 var cardsDealt = Pack.dealCard(dealCount);
             } 
+            
             // error catches
+            // catch wrong data type errors
             catch (System.FormatException) 
             {
-                Console.WriteLine("Please type in an integer");
-                       
+                Console.WriteLine("Please type in an integer");                      
             }
+            // catch errors for the number of cards to deal being larger then the list
             catch (System.ArgumentOutOfRangeException)
             {
                 Console.WriteLine("Number entered was higher then cards left in the deck, all remaining cards were dealt");
-            }                           
+            }   
+            // catch errors when too many numbers are typed in one input box
+            catch (System.OverflowException) 
+            {
+                Console.WriteLine("Value too large, please use a smaller number");
+            }
         }               
     }
 }
