@@ -40,7 +40,7 @@ namespace PlayingCards_NH
             }
             catch (System.ArgumentOutOfRangeException)
             {
-                Console.WriteLine("Number entered was higher then cards left in the deck");
+                Console.WriteLine("Number entered was higher then cards left in the deck, all remaining cards were dealt");
             }
             // in case of any non accounted for errors
             catch(Exception e)
