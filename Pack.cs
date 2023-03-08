@@ -45,12 +45,6 @@
             {
                 noShuffle();
             }
-            if(typeOfShuffle >= 4)
-            {
-                Console.WriteLine("please enter a valid number for shuffle type");
-                int shuffleType = Convert.ToInt32(Console.ReadLine());
-                shuffleCardPack(shuffleType);
-            }
         }
 
 
