@@ -43,7 +43,6 @@
                 { 
                     randomList.Add(card);
                 }
-                Deck.Clear();
                 Deck = randomList;
             }
             // Riffle         
@@ -78,25 +77,25 @@
                     i++;
                     j++;
                 }
-                // save the shuffle to the orignal deck 
-                Deck.Clear();
+                // save the shuffle to the orignal list (Deck) 
                 Deck = mergedList;
 
-                // None
+                // Doesn't shuffle.
                 if (typeOfShuffle == 3)
                 {
-                    Console.WriteLine("no shuffle " + Deck.Count + " Cards still in the deck");
+                    Console.WriteLine("no shuffle");
                 }
             }
         }
 
+        // deals a card by printing it then removing it from the list.
         public void deal()
         {
             var toRemove = Deck[0];
             Console.WriteLine(toRemove.cardName);
             Deck.RemoveAt(0);
         }
-
+        // calls the deal method for amount of cards the user wants to get rid of.
         public void dealCard(int amount)
         {
             Console.WriteLine("Dealing Cards: ");

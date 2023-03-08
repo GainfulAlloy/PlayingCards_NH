@@ -14,8 +14,7 @@ namespace PlayingCards_NH
         // Suits: 1 - Diamonds (Red), 2 - clubs (black), 3 - hearts (red), 4 - spades (black)
         // Values: (assceniding order): ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, joker, queen, king
 
-
-        // for this there should be the actual values of the card and the strings are used to change the name of how it looks when printed
+        // for this there should be the actual values of the card, and the strings are used to change the name of how it looks when printed
         public int value;
         
 
@@ -32,14 +31,13 @@ namespace PlayingCards_NH
             get; 
             set;
         }
-
-
+        // Card constructor
         public Card(int aValue, suit suitType)
         {
             value = aValue;
             this.suitType = suitType;
         }
-
+        // This is used to convert the number assigned to card into the correct name
         public string valueType
         {
             get
@@ -67,6 +65,7 @@ namespace PlayingCards_NH
                 return type;
             }
         }
+        // Used for printing the name of the card by compilling the value and suit results.
         public string cardName
         {
             get
@@ -74,8 +73,5 @@ namespace PlayingCards_NH
                 return valueType + " of " + suitType.ToString();
             }
         }
-
-        // try using gets and sets as well as a switch.
-        // use a swtich in a method to assign suits or higher values to the cards
     }
 }
