@@ -4,7 +4,7 @@
     {
 
         // create all the cards in this class using this method
-        public List<Card> Deck = new List<Card>();
+        public static List<Card> Deck = new List<Card>();
 
 
         // in this method, i represents a card in the Deck list, starting from zero
@@ -31,26 +31,24 @@
         // Fisher-Yates puts all elemnts in a hat and pulls them out till none remain
         // Riffle Shuffle where deck is split in half and the elemnts become interlaped.
         // No shuffle = dont shuffle
-        public void shuffleCardPack(int typeOfShuffle)
+        public static bool shuffleCardPack(int typeOfShuffle)
         {
             if (typeOfShuffle == 1)
             {
-                FisherYates();
+                return FisherYates();
             }
             if (typeOfShuffle == 2)
             {
-                riffleShuffle();
-            }
-            if (typeOfShuffle == 3)
-            {
-                noShuffle();
-            }
+                return riffleShuffle();
+            }   
+            // won't shuffle if number is out of range
+            return noShuffle();
         }
 
 
 
         // Fisher-Yates (Random)
-        public void FisherYates()
+        public static bool FisherYates()
         {
             // create instance of random
             var rnd = new Random();
@@ -65,11 +63,12 @@
                     randomlist.Add(card);
                 }
                 Deck = randomlist;
+                return true;
             }
         }
 
         // riffleShuffle (Here cards from the middle of the deck become interlaped with cards at the front of the deck)
-        public void riffleShuffle()
+        public static bool riffleShuffle()
         {
             var mergedList = new List<Card>();
             int halfDeck = Deck.Count / 2;
@@ -89,31 +88,38 @@
             }
             // save the shuffle to the orignal deck 
             Deck = mergedList;
+            return true;
         }
 
         // tells the user no shuffle was done
-        public void noShuffle()
+        public static bool noShuffle()
         {
             Console.WriteLine("No shuffle:");
+            return true;
         }
 
         // Method to deal a single card
-        public void deal()
+        public static Card deal()
         {
             var toRemove = Deck[0];
             Console.WriteLine(toRemove.cardName);
             Deck.RemoveAt(0);
+            return toRemove;
         }
 
         // calls the deal method multiple times, dealing multiple cards
-        public void dealCard(int amount)
+        // saves the dealt cards to a new list of dealt cards.
+        public static List<Card> dealCard(int amount)
         {
+            var dealtCards = new List<Card>();
             Console.WriteLine("Dealing Cards: ");
             for (int i = 0; i < amount; i++)
             {
-                deal();
+                var toRemove = deal();
+                dealtCards.Add(toRemove);
             }
             Console.WriteLine("Cards left in Deck " + Deck.Count);
+            return dealtCards;
         }
     }
 }

@@ -8,8 +8,6 @@ namespace PlayingCards_NH
 {
     internal class Testing
     {
-
-        bool codeExecuting = true;
         public Testing() 
         {
       
@@ -19,6 +17,7 @@ namespace PlayingCards_NH
         { 
             try 
             { 
+                // allows user input to test different features
                 Pack newPack  = new Pack();
                 newPack.createPack();
                 Console.WriteLine("Select a shuffle method:");
@@ -28,11 +27,12 @@ namespace PlayingCards_NH
                 int shuffleType = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("How many cards do you want to deal?");
                 int dealCount = Convert.ToInt32(Console.ReadLine());
-                newPack.shuffleCardPack(shuffleType);
-                newPack.dealCard(dealCount);
 
-
+                // performs the users selection
+                var shuffleSelect = Pack.shuffleCardPack(shuffleType);               
+                var cardsDealt = Pack.dealCard(dealCount);
             } 
+            // error catches
             catch (System.FormatException) 
             {
                 Console.WriteLine("Please type in an integer");
@@ -41,16 +41,7 @@ namespace PlayingCards_NH
             catch (System.ArgumentOutOfRangeException)
             {
                 Console.WriteLine("Number entered was higher then cards left in the deck, all remaining cards were dealt");
-            }
-            // in case of any non accounted for errors
-            catch(Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-           
-        
-        }
-        
-        
+            }                           
+        }               
     }
 }
