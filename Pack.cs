@@ -45,6 +45,12 @@
             {
                 noShuffle();
             }
+            if(typeOfShuffle >= 4)
+            {
+                Console.WriteLine("please enter a valid number for shuffle type");
+                int shuffleType = Convert.ToInt32(Console.ReadLine());
+                shuffleCardPack(shuffleType);
+            }
         }
 
 
@@ -52,10 +58,14 @@
         // Fisher-Yates (Random)
         public void FisherYates()
         {
+            // create instance of random
             var rnd = new Random();
             {
                 var randomlist = new List<Card>();
+                // change order of deck so that cards (a) are randomly selected for the order.
                 var random = Deck.OrderBy(a => rnd.Next());
+
+                // fill the empty list with the cards, then save Deck as the new list order
                 foreach (var card in random)
                 {
                     randomlist.Add(card);
@@ -75,14 +85,13 @@
             for (int count = 0; count < halfDeck; count++)
             {
                 // here i is the list position to insert into,
-                // firstHalf and secondHalf are used to find the list position to take from.
+                // firstHalf and secondHalf are used to find the Deck's list position to take from.
                 mergedList.Insert(i, Deck[firstHalf]);
                 i++;
                 firstHalf++;
                 mergedList.Insert(i, Deck[secondHalf]);
                 i++;
                 secondHalf++;
-
             }
             // save the shuffle to the orignal deck 
             Deck = mergedList;
