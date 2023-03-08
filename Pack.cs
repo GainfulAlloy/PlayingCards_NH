@@ -87,7 +87,7 @@
                 }
             }
         }
-
+        // Method to deal a single card
         public void deal()
         {
             var toRemove = Deck[0];
@@ -95,6 +95,7 @@
             Deck.RemoveAt(0);
         }
 
+        // calls the deal method multiple times, dealing multiple cards
         public void dealCard(int amount)
         {
             Console.WriteLine("Dealing Cards: ");

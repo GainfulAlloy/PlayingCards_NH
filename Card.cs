@@ -38,6 +38,7 @@ namespace PlayingCards_NH
             this.suitType = suitType;
         }
 
+        // allows for the cards to be printed with the correct names
         public string valueType
         {
             get
@@ -65,6 +66,8 @@ namespace PlayingCards_NH
                 return type;
             }
         }
+
+        // allows for the cards in the deck to be printed correctly
         public string cardName
         {
             get
