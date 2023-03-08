@@ -37,7 +37,7 @@ namespace PlayingCards_NH
             value = aValue;
             this.suitType = suitType;
         }
-        // This is used to convert the number assigned to card into the correct name
+
         public string valueType
         {
             get
@@ -65,7 +65,6 @@ namespace PlayingCards_NH
                 return type;
             }
         }
-        // Used for printing the name of the card by compilling the value and suit results.
         public string cardName
         {
             get
